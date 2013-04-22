@@ -1,1 +1,10 @@
-wget -O tmp_logoff.html "https://www.btopenzone.com:8443/accountLogoff/home?confirmed=true"
+#!/bin/bash
+
+echo -en "Logging off..."
+wget -O /dev/null "https://www.btopenzone.com:8443/accountLogoff/home?confirmed=true" 1>/dev/null 2>/dev/null
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+	echo "failed."
+	echo $STATUS
+fi
+echo "done."
